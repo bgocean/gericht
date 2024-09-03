@@ -1,12 +1,12 @@
 //====================================================================================================
 .header {
+  color: #fff;
   &__container {
-    color: #fff;
-    display: grid;
-    gap: 32px;
     align-items: center;
     height: 121px;
-    grid-template-columns: repeat(12, 1fr);
+    position: relative;
+    display: flex;
+
     &_wide {
     }
   }
@@ -19,12 +19,15 @@
     line-height: 130%;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    flex: 0 0 300px;
+    width: 300px;
   }
   &__menu {
-    grid-column: span 6;
+    flex: 1 1 auto;
   }
   &__auth {
-    grid-column: span 3;
+    flex: 0 0 300px;
+    width: 300px;
   }
 }
 .menu {
@@ -49,17 +52,23 @@
 .icon-menu {
 }
 .auth-header {
+  align-self: stretch;
   display: flex;
+  justify-content: flex-end;
   gap: 10px 50px;
+  padding: 32px 0;
   &__item {
-	position: relative;
+    display: flex;
+    align-items: center;
+    position: relative;
     &:not(:last-child) {
       &::before {
-        content: "";		
+        content: "";
         position: absolute;
-		top: 0;
-		width: 1px;
-		height: 100%;
+        top: 0;
+        right: -24px;
+        width: 1px;
+        height: 100%;
         background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0) 1%,
