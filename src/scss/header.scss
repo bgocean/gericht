@@ -35,6 +35,8 @@
   &__list {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 5px 32px;
+	justify-content: center;
 	align-items: center;
   }
   &__item {
@@ -47,6 +49,8 @@
 .icon-menu {
 }
 .auth-header {
+	display: flex;
+	gap: 10px 50px;
   &__item {
   }
   &__link {
@@ -56,7 +60,7 @@
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -101,4 +105,4 @@
 		}
 	}
 }
-*/
+
