@@ -1,6 +1,7 @@
 //====================================================================================================
 .header {
   &__container {
+	color: #fff;
     display: grid;
     gap: 32px;
     align-items: center;
@@ -13,9 +14,11 @@
     @extend %cuf;
     grid-column: span 3;
     justify-self: start;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 44px;
     line-height: 130%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;	
   }
   &__menu {
     grid-column: span 6;
