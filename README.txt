@@ -67,6 +67,6 @@ npm rebuild node-sass
 npm install sass gulp-sass --save-dev
 --------------------------------------
 Ошибка Pyton
-Решени:
+Решение:
 npm install --global windows-build-tools
 --------------------------------------
