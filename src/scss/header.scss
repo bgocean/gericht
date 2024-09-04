@@ -1,33 +1,41 @@
 //====================================================================================================
 .header {
   color: #fff;
+  padding: 10px 0;
   &__container {
     align-items: center;
-    height: 121px;
+    min-height: 121px;
     position: relative;
     display: flex;
 
     &_wide {
     }
   }
+
+  &__column {
+    flex: 0 0 300px;
+    width: 300px;
+    &_wide {
+      flex: 1 1 auto;
+    }
+    &_auth {
+      align-self: stretch;
+    }
+  }
+
   &__logo {
     @extend %cuf;
     grid-column: span 3;
-    justify-self: start;
+
     font-weight: 700;
     font-size: 44px;
     line-height: 130%;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    flex: 0 0 300px;
-    width: 300px;
   }
   &__menu {
-    flex: 1 1 auto;
   }
   &__auth {
-    flex: 0 0 300px;
-    width: 300px;
   }
 }
 .menu {
@@ -47,16 +55,22 @@
   &__link {
     line-height: 175%;
     letter-spacing: 0.04em;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainHover;
+      }
+    }
   }
 }
-.icon-menu {
-}
+
 .auth-header {
+  height: 100%;
   align-self: stretch;
   display: flex;
   justify-content: flex-end;
   gap: 10px 50px;
-  padding: 32px 0;
+  padding: 22px 0;
   &__item {
     display: flex;
     align-items: center;
@@ -81,6 +95,14 @@
     }
   }
   &__link {
+    text-align: center;
+    line-height: 140%;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainHover;
+      }
+    }
   }
 }
 
