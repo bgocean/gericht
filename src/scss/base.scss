@@ -32,19 +32,19 @@
   gap: 8px;
   justify-content: center;
   text-transform: capitalize;
-  // &__subtitle {
-  //   @include adaptiveValue("font-size", 23, 23);
-  //   line-height: 130%;
-  //   letter-spacing: 0.04em;
-  //   color: $mainWhite;
-  // }
-  // &__title {
-  //   font-weight: 600;
-  //   @include adaptiveValue("font-size", 64, 64);
-  //   line-height: 130%;
-  //   letter-spacing: 0.04em;    
-  //   color: $mainYellow;
-  // }
+  &__subtitle {
+    line-height: 130%;
+    letter-spacing: 0.04em;
+    color: $mainWhite;
+    @include adaptiveValue("font-size", 23, 23);
+  }
+  &__title {
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.04em;    
+    color: $mainYellow;
+    @include adaptiveValue("font-size", 64, 64);
+  }
 }
 
 // Стили для отзывчивых картинок (IBG)
