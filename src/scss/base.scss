@@ -17,6 +17,36 @@
 // Стили для полноэкранного блока
 // @import "base/fullscreen";
 
+.main-bg {
+  position: fixed;
+  top: -10%;
+  left: 0%;
+  width: 100%;
+  height: 120%;
+  background: url("@img/main-bg.jpg") center / cover no-repeat; // bg+
+}
+
+.block-header {
+  @extend %cuf;
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+  text-transform: capitalize;
+  // &__subtitle {
+  //   @include adaptiveValue("font-size", 23, 23);
+  //   line-height: 130%;
+  //   letter-spacing: 0.04em;
+  //   color: $mainWhite;
+  // }
+  // &__title {
+  //   font-weight: 600;
+  //   @include adaptiveValue("font-size", 64, 64);
+  //   line-height: 130%;
+  //   letter-spacing: 0.04em;    
+  //   color: $mainYellow;
+  // }
+}
+
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
 // Сниппет (HTML): ibga (a c картинкой и классами)

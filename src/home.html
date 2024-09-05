@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('html/_head.htm',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="page">							
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		<!-- @@include('html/_popup.htm',{}) -->
-		@@include('html/_js.htm',{})
-	</body>
+  @@include('html/_head.htm',{ "title":"Главная" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="mainpage">
+        <section class="mainpage__slider main-slider">
+          <div class="main-slider__container main-slider__container_wide">
+            <div class="main-slider__container body-main-slider">
+              <div class="body-main-slider__slider">
+                <div class="body-main-slider__swiper">
+                  <div class="body-main-slider__slide slide-main-slider">
+                    <div class="slide-main-slider__content">
+                      <div class="slide-main-slider__header block-header">
+                        <div class="block-header__subtitle">
+                        Chase the new Flavour
+                        </div>
+                        <h2 class="block-header__title">
+                        The key to Fine dining
+                        </h2>
+                      </div>
+                      <div class="slide-main-slider__text">
+                        Sit tellus lobortis sed senectus vivamus molestie.
+                        Condimentum volutpat morbi facilisis quam scelerisque
+                        sapien. Et, penatibus aliquam amet tellus
+                      </div>
+                      <a href="" class="slide-main-slider__button"
+                        >Explore Menu</a
+                      >
+                    </div>
+                    <div class="slide-main-slider__image">
+                      <img src="@img/mainpage/mainslider/01.jpg" alt="Картинка еды">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="main-slider__menu menu-main-slider">
+              <a class="menu-main-slider__link" href="">#Gericht</a>
+              <a class="menu-main-slider__link" href="">#Bar</a>
+            </nav>
+            <div class="main-slider__scroll">Scroll</div>
+          </div>
+        </ы>
+      </main>
+      @@include('html/_footer.htm',{})
+    </div>
+    <!-- @@include('html/_popup.htm',{}) -->
+    @@include('html/_js.htm',{})
+  </body>
 </html>
