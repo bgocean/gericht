@@ -52,6 +52,7 @@
     @media (max-width: $mobile) {
       // md3
       position: fixed;
+      overflow: auto;
       width: 100%;
       height: 100%;
       top: 0;
@@ -60,20 +61,28 @@
       background-color: #0c0c0c;
       @include adaptiveValue("padding-top", 170, 100);
       padding-bottom: rem(30);
-      &::before {        // b
+      padding-right: rem(15);
+      padding-left: rem(15);
+      &::before {
+        // b
         content: "";
-        top: 0;
+        top: -100%;
         position: fixed;
         width: 100%;
-        left: -100%;
-        transition: all 0.3s ease 0s;
-        background-color: #000;
-        @include adaptiveValue("height", 141, 70);
+        left: 0;
+        transition: top 0.3s ease 0s;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+
+        @include adaptiveValue("height", 171, 100);
       }
       .menu-open & {
         left: 0;
         &::before {
-          left: 0;
+          top: 0;
         }
       }
     }
@@ -85,10 +94,12 @@
     justify-content: center;
     align-items: center;
     @include adaptiveValue("column-gap", 32, 15, 1330, 768, 1);
-
-    @media (max-width:$mobile){   // md3
+    @media (max-width: $mobile) {
+      // md3
       flex-direction: column;
-        
+      &:not(:last-child) {
+        margin-bottom: rem(50);
+      } // mble
     }
   }
   &__item {
@@ -101,6 +112,9 @@
       &:hover {
         color: $mainHover;
       }
+    }
+    @media (max-width: $mobile) {
+      font-size: rem(35);
     }
   }
 }
@@ -122,6 +136,9 @@
     // mmd
     padding: 22px 0;
     justify-content: flex-end;
+  }
+  @media (max-width: $mobileSmall) {
+    align-items: center;
   }
   &__item {
     display: flex;
@@ -158,6 +175,9 @@
       &:hover {
         color: $mainHover;
       }
+    }
+    @media (max-width: $mobileSmall) {
+      font-size: rem(28);
     }
   }
 }
