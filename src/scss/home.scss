@@ -1,6 +1,5 @@
 //====================================================================================================
 .mainpage {
-  
   &__slider {
   }
 }
@@ -9,6 +8,7 @@
   @include adaptiveValue("padding-top", 210, 140);
   &__container {
     &_wide {
+      position: relative;
     }
   }
   &__menu {
@@ -43,7 +43,22 @@
   }
 }
 .menu-main-slider {
+  position: absolute;
+  left: rem(15);
+  top: 0;
+  display: flex;
+  gap: rem(40);
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &__link {
+    font-size: rem(18);
+    line-height: 175%;
+    letter-spacing: 0.04em;
+    color: $mainWhite;
+    transform: rotate(-180deg); // ar
+    writing-mode: vertical-lr;
   }
 }
 
