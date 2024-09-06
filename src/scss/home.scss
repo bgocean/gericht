@@ -1,3 +1,48 @@
 //====================================================================================================
+.mainpage {
+  @include adaptiveValue("padding-top", 210, 140);
+  &__slider {
+  }
+}
+.main-slider {
+  &__container {
+    &_wide {
+    }
+  }
+  &__menu {
+  }
+  &__scroll {
+  }
+}
+.body-main-slider {
+  &__slider {
+  }
+  &__swiper {
+  }
+  &__slide {
+  }
+}
+.slide-main-slider {
+  &__content {
+  }
+  &__header {
+  }
+  &__text {
+  }
+  &__button {
+  }
+  &__image {
+  }
+}
+.block-header {
+  &__subtitle {
+  }
+  &__title {
+  }
+}
+.menu-main-slider {
+  &__link {
+  }
+}
 
 //====================================================================================================
