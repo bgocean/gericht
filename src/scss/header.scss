@@ -112,7 +112,6 @@
   &__link {
     line-height: 175%;
     letter-spacing: 0.04em;
-    transition: color 0.3s ease 0s;
     @media (any-hover: hover) {
       &:hover {
         color: $mainYellow;
@@ -175,7 +174,6 @@
   &__link {
     text-align: center;
     line-height: 140%;
-    transition: color 0.3s ease 0s;
     @media (any-hover: hover) {
       &:hover {
         color: $mainYellow;
