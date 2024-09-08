@@ -30,7 +30,10 @@
   }
 }
 .slide-main-slider {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   &__content {
+    padding-right: 40px;
   }
   &__header {
   }
@@ -39,6 +42,7 @@
   &__button {
   }
   &__image {
+    flex: 0 1 50%;
   }
 }
 .block-header {

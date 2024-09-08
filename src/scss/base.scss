@@ -15,62 +15,7 @@
 // @import "base/showmore";
 
 // Стили для полноэкранного блока
-// @import "base/fullscreen";
-
-.main-bg {
-  position: fixed;
-  top: -10%;
-  left: 0%;
-  width: 100%;
-  height: 120%;
-  background: url("@img/main-bg.jpg") center / cover no-repeat; // bg+
-}
-
-.block-header {
-  @extend %cuf;
-  display: grid;
-  gap: 8px;
-  justify-items: center;
-  text-transform: capitalize;
-  &__subtitle {
-    line-height: 130%;
-    letter-spacing: 0.04em;
-    display: grid;
-    gap: 8px;
-    color: $mainWhite;
-    justify-items: center;
-    // align-items: center;
-    @include adaptiveValue("font-size", 23, 23);
-    &::after {
-      @extend %ic;
-      content: "\e904";
-      color: $mainYellow;
-      font-size: em(9, 23);
-    }
-  }
-  &__title {
-    font-weight: 600;
-    line-height: 130%;
-    letter-spacing: 0.04em;
-    color: $mainYellow;
-    @include adaptiveValue("font-size", 64, 64);
-  }
-
-  &_big {
-    .block-header__title {
-      @include adaptiveValue("font-size", 90, 90);
-    }
-  }
-  &_left {
-    justify-items: stretch;
-    .block-header__subtitle {
-      justify-items: stretch;
-    }
-  }
-}
-.scroll{
-  
-}
+@import "base/fullscreen";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)

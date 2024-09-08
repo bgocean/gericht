@@ -5,7 +5,7 @@
     <div class="wrapper">
       @@include('html/_header.htm',{})
       <main class="mainpage">
-        <section class="mainpage__slider main-slider">
+        <section data-fullscreen class="mainpage__slider main-slider">
           <div class="main-slider__container main-slider__container_wide">
             <div class="main-slider__container body-main-slider">
               <div class="body-main-slider__slider">
@@ -31,7 +31,7 @@
                         >Explore Menu</a
                       >
                     </div>
-                    <div class="slide-main-slider__image">
+                    <div class="slide-main-slider__image-ibg">
                       <img
                         src="@img/mainpage/mainslider/01.jpg"
                         alt="Картинка еды"
@@ -46,7 +46,7 @@
               <a class="menu-main-slider__link menu-main-slider__link_current" href="">#Gericht</a>
               <a class="menu-main-slider__link" href="">#Bar</a>
             </nav>
-            <div class="main-slider__scroll scroll">Scroll</div>
+            <button type="button" class="main-slider__scroll scroll">Scroll</button>
           </div>
         </section>
       </main>
