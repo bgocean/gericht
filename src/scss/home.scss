@@ -5,10 +5,12 @@
 }
 .main-slider {
   background-color: #0c0b08;
+  display: flex;
   @include adaptiveValue("padding-top", 210, 140);
   @include adaptiveValue("padding-bottom ", 70, 70);
   &__container {
     &_wide {
+      flex: 1 1 auto;
       position: relative;
     }
   }
@@ -22,17 +24,28 @@
   }
 }
 .body-main-slider {
-  &__slider {
-  }
-  &__swiper {
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+   &__swiper {
+    flex: 1 1 auto;
   }
   &__slide {
+    height: 100%;
+  }
+  &__control {
+    display: flex;
+    justify-content: center;  // fbc
+    align-items: center;
+    @include adaptiveValue("padding-top", 88, 88);
   }
 }
 .slide-main-slider {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   &__content {
+    align-self: center;
     padding-right: 40px;
   }
   &__header {
