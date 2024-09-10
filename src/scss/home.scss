@@ -6,7 +6,7 @@
 .main-slider {
   background-color: #0c0b08;
   display: flex;
-  @include adaptiveValue("padding-top", 210, 140);
+  @include adaptiveValue("padding-top", 185, 115);
   @include adaptiveValue("padding-bottom ", 70, 70);
   &__container {
     &_wide {
@@ -19,24 +19,25 @@
   &__scroll {
     position: absolute;
     bottom: 0;
-    right: 0;
-    text-transform: uppercase;
+    right: rem(15);
   }
 }
 .body-main-slider {
   height: 100%;
-  min-height: 300px;
+  // min-height: 300px;
   display: flex;
   flex-direction: column;
-   &__swiper {
+
+  &__swiper {
     flex: 1 1 auto;
+    align-items: center;
   }
   &__slide {
-    height: 100%;
+    height: 100%;    
   }
   &__control {
     display: flex;
-    justify-content: center;  // fbc
+    justify-content: center; // fbc
     align-items: center;
     @include adaptiveValue("padding-top", 88, 88);
   }
@@ -44,9 +45,14 @@
 .slide-main-slider {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding: 25px 0px 0px 0px; // pp
   &__content {
     align-self: center;
     padding-right: 40px;
+    display: grid;
+    gap: 32px;
+    max-width: rem(500);
+    justify-items: start;
   }
   &__header {
   }
@@ -54,8 +60,49 @@
   }
   &__button {
   }
-  &__image {
-    flex: 0 1 50%;
+  &__image-ibg {
+    margin-right: percent(25, 650);
+    position: relative;
+    max-height: 736px;
+    height: 100%;
+    align-self: center;
+    // flex: 0 1 50%;
+    &::before,   // ba
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $mainYellow;
+      transition: transform 0.3s ease 0s;
+      width: percent(435, 619);
+      height: percent(435, 688);
+    }
+    &::before {
+      top: 0;
+      right: 0;
+      transform: translate(25px, -25px);
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+      transform: translate(-25px, 25px); // at
+    }
+    img {
+      transition: transform 0.3s ease 0s;  // aa
+      z-index: 2;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: translate(30px, -30px);
+        }
+        &::after {
+          transform: translate(-30px, 30px);
+        }
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
   }
 }
 .block-header {
