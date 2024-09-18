@@ -39,6 +39,11 @@
     display: flex;
     justify-content: center; // fbc
     align-items: center;
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: 175%;
+    color: #fff;
+    @extend %cuf;
     @include adaptiveValue("padding-top", 88, 88);
   }
 }
