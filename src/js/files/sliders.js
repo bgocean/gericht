@@ -110,7 +110,10 @@ function initSliders() {
         init: function () {
           const control = document.querySelectorAll(".body-main-slider__control .swiper-pagination-bullet");
           control.forEach((el, index) => {
-            let num = index < 10 ? `0` : "";
+            let num;
+            if (index < 10) {
+              num = "0";
+            }
             el.innerHTML = `${num}${index + 1}`;
           });
         },

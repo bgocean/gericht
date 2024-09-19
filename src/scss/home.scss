@@ -37,14 +37,31 @@
   }
   &__control {
     display: flex;
+    gap: 8px;
     justify-content: center; // fbc
     align-items: center;
-    font-weight: 600;
-    font-size: rem(16);
-    line-height: 175%;
-    color: #fff;
+    text-transform: capitalize;   
     @extend %cuf;
     @include adaptiveValue("padding-top", 88, 88);
+    .swiper-pagination-bullet {
+      font-weight: 600;
+      font-size: rem(22);
+      color: #fff;
+      line-height: 175%;
+      letter-spacing: 0.04em;
+    }
+    .swiper-pagination-bullet-active {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      &::after {
+        content: "";
+        width: 16px;
+        background-color: $mainYellow;
+        flex: 0 0 16px; // fbp
+        height: 1px;
+      }
+    }
   }
 }
 .slide-main-slider {
