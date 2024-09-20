@@ -11,6 +11,7 @@
   &__container {
     &_wide {
       flex: 1 1 auto;
+      min-width: 0;
       position: relative;
     }
   }
@@ -46,20 +47,28 @@
     .swiper-pagination-bullet {
       font-weight: 600;
       font-size: rem(22);
-      color: #fff;
+      color: $mainWhite;
       line-height: 175%;
       letter-spacing: 0.04em;
-    }
-    .swiper-pagination-bullet-active {
+      transition: gap 0.8s ease 0s;
       display: flex;
-      gap: 8px;
+      gap: 0px;
       align-items: center;
       &::after {
         content: "";
-        width: 16px;
+        width: 0px;
+        transition: all 0.8s ease 0s;
         background-color: $mainYellow;
-        flex: 0 0 16px; // fbp
+        flex: 0 0 0px; // fbp
         height: 1px;
+      }
+    }
+    .swiper-pagination-bullet-active {     
+      gap: 8px; 
+      &::after {
+        content: "";
+        width: 16px;        
+        flex: 0 0 16px; // fbp        
       }
     }
   }
