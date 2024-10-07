@@ -41,7 +41,7 @@
 
   &_big {
     .block-header__title {
-      @include adaptiveValue("font-size", 90, 90);
+      @include adaptiveValue("font-size", 90, 40);
     }
   }
   &_left {

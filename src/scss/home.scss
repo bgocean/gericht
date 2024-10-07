@@ -7,7 +7,7 @@
   background-color: #0c0b08;
   display: flex;
   @include adaptiveValue("padding-top", 185, 115);
-  @include adaptiveValue("padding-bottom ", 70, 70);
+  @include adaptiveValue("padding-bottom ", 70, 30);
   &__container {
     &:not(.main-slider__container_wide) {
       padding: 0;
@@ -22,9 +22,18 @@
   &__menu {
   }
   &__scroll {
-    position: absolute;
-    bottom: 0;
-    right: rem(15);
+    @media (min-width: em(1445)) {
+      position: absolute;
+      bottom: 0;
+      right: rem(15);
+    }
+    @media (max-width: em(1445)) {
+      display: block;
+      padding-top: rem(15);
+      &::before {
+        display: none;
+      }
+    }
   }
 }
 .body-main-slider {
@@ -47,7 +56,10 @@
     align-items: center;
     text-transform: capitalize;
     @extend %cuf;
-    @include adaptiveValue("padding-top", 88, 88);
+    padding-top: rem(88);
+    @media (max-width: em(1445)) {
+      padding-top: rem(15);
+    }
     .swiper-pagination-bullet {
       font-weight: 600;
       font-size: rem(22);
@@ -79,12 +91,14 @@
 }
 .slide-main-slider {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   padding: 25px 0px 0px 0px; // pp
   opacity: 0 !important;
   pointer-events: none;
   @media (max-width: em(1445)) {
     padding: 50px 0;
+  }
+  @media (min-width:$tablet){    // mmd2
+    grid-template-columns: repeat(2, 1fr);      
   }
   &.swiper-slide-active {
     pointer-events: auto;
