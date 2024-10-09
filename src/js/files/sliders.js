@@ -7,7 +7,13 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination, Lazy, EffectFade, Autoplay } from "swiper";
+import Swiper, {
+  Navigation,
+  Pagination,
+  Lazy,
+  EffectFade,
+  Autoplay,
+} from "swiper";
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -54,17 +60,17 @@ function initSliders() {
       modules: [Pagination, EffectFade, Lazy, Autoplay],
 
       effect: "fade",
-      
+
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
       },
-      
+
       observer: true,
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      // autoHeight: true,
+      autoHeight: false,
       speed: 1000,
       //touchRatio: 0,
       //simulateTouch: false,
@@ -85,30 +91,23 @@ function initSliders() {
         nextEl: ".about__more .more__item_next",
         prevEl: ".about__more .more__item_prev",
       },
-      /*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
+      */
+
+      breakpoints: {
+        320: {
+          autoHeight: true,
+        },
+
+        992: {
+          autoHeight: false,
+        },
+      },
+
       on: {
         init: function () {
-          const control = document.querySelectorAll(".body-main-slider__control .swiper-pagination-bullet");
+          const control = document.querySelectorAll(
+            ".body-main-slider__control .swiper-pagination-bullet"
+          );
           control.forEach((el, index) => {
             let num;
             if (index < 10) {

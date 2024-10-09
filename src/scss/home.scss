@@ -13,7 +13,7 @@
 .main-slider {
   background-color: #0c0b08;
   display: flex;
-  @include adaptiveValue("padding-top", 185, 115);
+  @include adaptiveValue("padding-top", 185, 80);
   @include adaptiveValue("padding-bottom ", 70, 30);
 
   &__container {
@@ -50,9 +50,12 @@
   }
 }
 .body-main-slider {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  @media (min-width: $tablet) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &.swiper {
     overflow: visible;
   }
@@ -63,7 +66,9 @@
   }
 
   &__slide {
-    height: 100%;
+    @media (min-width: $tablet) {
+      height: 100%;
+    }
   }
 
   &__control {
@@ -110,18 +115,16 @@
   }
 }
 .slide-main-slider {
-  display: grid;
   padding: 25px 0px 0px 0px; // pp
   opacity: 0 !important;
+
   pointer-events: none;
-  gap: 50px;
   @media (max-width: em(1445)) {
-    padding: 50px 0;
+    padding: rem(50) 0 rem(20) 0;
   }
   @media (min-width: $tablet) {
-    // mmd2
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
   }
   &.swiper-slide-active {
     pointer-events: auto;
@@ -131,12 +134,20 @@
     align-self: center;
     display: grid;
     gap: 32px;
-    justify-items: start;
     @media (min-width: $tablet) {
       padding-right: rem(40);
       max-width: rem(500);
     }
+    @media (max-width: $tablet) {
+      &:not(:last-child) {
+        margin-bottom: rem(30);
+      }
+    }
+    @media (max-width: $mobile) {
+      justify-items: stretch;
+    }
   }
+
   &__header {
   }
 
@@ -156,6 +167,7 @@
       height: 100%;
     }
     @media (max-width: $tablet) {
+      display: block;
       margin: 0 rem(math.div($containerPadding, -2));
     }
 
@@ -167,6 +179,9 @@
       transition: transform 0.3s ease 0s;
       width: percent(435, 619);
       height: percent(435, 688);
+      @media (max-width:$tablet){
+        display: none;
+      }
     }
     &::before {
       top: 0;
