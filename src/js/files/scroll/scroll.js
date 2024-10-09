@@ -3,16 +3,17 @@
 import { isMobile } from "../functions.js";
 // Импорт класса наблюдателя.
 import { ScrollWatcher } from "../../libs/watcher.js";
-// Модуль прокрутки к блоку (раскомментировать при использовании)
+// Модуль прокрутки к блоку (раскомментировать при использовании).
 import { gotoBlock } from "./gotoblock.js";
+// Переменная контроля добавления события window scroll.
+let addWindowScrollEvent = false;
 //====================================================================================================================================================================================================================================================================================================
-
 // Запуск наблюдателя
 // Создание дополнительной обработки элемента
 // Требует импорта ScrollWatcher
 export function scrollWatcher(logging = false) {
 	new ScrollWatcher({
-		logging: true
+		logging: logging
 	});
 }
 // Плавная навигация по странице
@@ -57,37 +58,106 @@ export function pageNavigation() {
 		}
 	}
 }
-// Прокрутка страницы, работа с шапкой (в работе)
-export function windowScroll(params) {
+// Работа с шапкой при скроле
+export function headerScroll() {
+	addWindowScrollEvent = true;
+	const header = document.querySelector('header.header');
+	const headerShow = header.hasAttribute('data-scroll-show'); // Добавить
+	const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
 	let scrollDirection = 0;
 	let timer;
-	window.addEventListener("scroll", function (e) {
+	document.addEventListener("windowScroll", function (e) {
 		const scrollTop = window.scrollY;
-		const header = document.querySelector('.header');
 		clearTimeout(timer);
-
-		if (scrollTop >= window.innerHeight * 2) {
+		if (scrollTop >= startPoint) {
 			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
-
-			if (scrollTop > scrollDirection) {
-				// downscroll code
-				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-			} else {
-				// upscroll code
-				!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+			if (headerShow) {
+				if (scrollTop > scrollDirection) {
+					// downscroll code
+					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+				} else {
+					// upscroll code
+					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+				}
+				timer = setTimeout(() => {
+					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+				}, headerShowTimer);
 			}
-			timer = setTimeout(() => {
-				!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-			}, 500);
-
 		} else {
 			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
-			header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+			if (headerShow) {
+				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+			}
 		}
 		scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
 	});
 }
-// Прилипающий блок (в работе)
-export function stickyBlock(params) {
-
+// Прилипающий блок
+export function stickyBlock() {
+	addWindowScrollEvent = true;
+	// data-sticky для родителя внутри которого прилипает блок *
+	// data-sticky-header для родителя, учитываем высоту хедера
+	// data-sticky-top="" для родителя, можно указать отступ сверху
+	// data-sticky-bottom="" для родителя, можно указать отступ снизу
+	// data-sticky-item для прилипающего блока *
+	function stickyBlockInit() {
+		const stickyParents = document.querySelectorAll('[data-sticky]');
+		if (stickyParents.length) {
+			stickyParents.forEach(stickyParent => {
+				let stickyConfig = {
+					top: stickyParent.dataset.stickyTop ? stickyParent.dataset.stickyTop : 0,
+					bottom: stickyParent.dataset.stickyBottom ? stickyParent.dataset.stickyBottom : 0,
+					header: stickyParent.hasAttribute('data-sticky-header')
+				}
+				stickyBlockItem(stickyParent, stickyConfig);
+			});
+		}
+	}
+	function stickyBlockItem(stickyParent, stickyConfig) {
+		const stickyBlockItem = stickyParent.querySelector('[data-sticky-item]');
+		const headerHeight = stickyConfig.header ? document.querySelector('header.header').offsetHeight : 0;
+		const offsetTop = headerHeight + stickyConfig.top;
+		document.addEventListener("windowScroll", function (e) {
+			const startPoint = stickyBlockItem.getBoundingClientRect().top + scrollY - offsetTop;
+			const endPoint = (stickyParent.offsetHeight + stickyParent.getBoundingClientRect().top + scrollY) - (offsetTop + stickyBlockItem.offsetHeight + stickyConfig.bottom);
+			let stickyItemValues = {
+				position: "relative",
+				bottom: "auto",
+				top: "0px",
+				left: "0px",
+				width: "auto"
+			}
+			if (offsetTop + stickyConfig.bottom + stickyBlockItem.offsetHeight < window.innerHeight) {
+				if (scrollY >= startPoint && scrollY <= endPoint) {
+					stickyItemValues.position = `fixed`;
+					stickyItemValues.bottom = `auto`;
+					stickyItemValues.top = `${offsetTop}px`;
+					stickyItemValues.left = `${stickyBlockItem.getBoundingClientRect().left}px`;
+					stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
+				} else if (scrollY >= endPoint) {
+					stickyItemValues.position = `absolute`;
+					stickyItemValues.bottom = `${stickyConfig.bottom}px`;
+					stickyItemValues.top = `auto`;
+					stickyItemValues.left = `0px`;
+					stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
+				}
+			}
+			stickyBlockType(stickyBlockItem, stickyItemValues);
+		});
+	}
+	function stickyBlockType(stickyBlockItem, stickyItemValues) {
+		stickyBlockItem.style.cssText = `position:${stickyItemValues.position};bottom:${stickyItemValues.bottom};top:${stickyItemValues.top};left:${stickyItemValues.left};width:${stickyItemValues.width};`;
+	}
+	stickyBlockInit();
 }
+// При подключении модуля обработчик события запустится автоматически
+setTimeout(() => {
+	if (addWindowScrollEvent) {
+		let windowScroll = new Event("windowScroll");
+		window.addEventListener("scroll", function (e) {
+			document.dispatchEvent(windowScroll);
+		});
+	}
+}, 0);
+

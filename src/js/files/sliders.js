@@ -116,6 +116,14 @@ function initSliders() {
             el.innerHTML = `${num}${index + 1}`;
           });
         },
+        breakpoint: function (swiper, info) {
+          !info.autoHeight
+            ? (document.querySelector(
+                ".body-main-slider__swiper"
+              ).style.height = "auto")
+            : "";
+          swiper.updateSize();
+        },
       },
     });
   }
