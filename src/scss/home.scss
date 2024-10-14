@@ -179,7 +179,7 @@
       transition: transform 0.3s ease 0s;
       width: percent(435, 619);
       height: percent(435, 688);
-      @media (max-width:$tablet){
+      @media (max-width: $tablet) {
         display: none;
       }
     }
@@ -254,3 +254,24 @@
 }
 
 //====================================================================================================
+.mainpage {
+  &__about {
+  }
+}
+.about-section {
+  &__container {
+    display: flex;
+  }
+  &__content {
+  }
+  &__header {
+  }
+  &__text {
+  }
+  &__knife {
+    flex: 0 0 255px; // fbp
+    text-align: center;
+  }
+  &__title {
+  }
+}
