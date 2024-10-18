@@ -254,15 +254,24 @@
 }
 
 //====================================================================================================
-.mainpage {
-  &__about {
-  }
-}
+
 .about-section {
+  @include adaptiveValue("padding-top", 128, 30);
+  @include adaptiveValue("padding-bottom ", 128, 30);
   &__container {
     display: flex;
   }
   &__content {
+    &:first-child {
+      // fc
+      text-align: right;
+      .about-section__title {
+        justify-items: end;
+        &::after {
+          transform: rotate(-180deg); // ar
+        }
+      }
+    }
   }
   &__header {
   }
@@ -273,5 +282,22 @@
     text-align: center;
   }
   &__title {
+    @extend %cuf;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+    display: grid;
+    gap: 8px;    
+    &::after {
+      @extend %ic;
+      content: "\e904";
+      color: $mainYellow;
+      font-size: em(9, 64);
+    }
+    &:not(:last-child) {
+      margin-bottom: em(32, 64);
+    }
+    @include adaptiveValue("font-size", 64, 64); // av
   }
 }
