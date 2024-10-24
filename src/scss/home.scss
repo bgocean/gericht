@@ -273,31 +273,61 @@
   &__container {
     position: relative;
     z-index: 2;
-    display: flex;
+
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: center;
+    }
   }
   &__content {
     display: grid;
     gap: 32px;
     align-content: start;
     justify-items: start;
-    &:first-child {      // fc
-      justify-items: end;
-      text-align: right;
-      .about-section__title {
+    &:first-child {
+      // fc
+
+      @media (min-width: $mobile) {
+        // mmd3
         justify-items: end;
-        &::after {
-          transform: rotate(-180deg); // ar
+        text-align: right;
+        .about-section__title {
+          justify-items: end;
+          &::after {
+            transform: rotate(-180deg); // ar
+          }
         }
+      }
+    }
+    @media (max-width: $mobile) {
+      text-align: center;
+      justify-items: center;
+      align-items: center;
+      .about-section__title {
+        justify-items: center;
       }
     }
   }
   &__header {
   }
   &__text {
+    @media (min-width: $mobile) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
   }
   &__knife {
-    flex: 0 0 255px; // fbp
+    flex: 0 0 percent(255, 1330); // fbp
+    padding: 0px rem(15);
     text-align: center;
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
   &__title {
     @extend %cuf;
@@ -313,7 +343,6 @@
       color: $mainYellow;
       font-size: em(9, 64);
     }
-
-    @include adaptiveValue("font-size", 64, 64); // av
+    @include adaptiveValue("font-size", 64, 30, 1330, 768, 1); // av
   }
 }
