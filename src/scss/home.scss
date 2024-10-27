@@ -1,5 +1,7 @@
 //====================================================================================================
 .mainpage {
+  background: url("@img/wave-element.svg") top right no-repeat;
+
   &__slider {
   }
 }
@@ -257,18 +259,18 @@
 
 .about-section {
   position: relative;
-  @include adaptiveValue("padding-top", 128, 30);
-  @include adaptiveValue("padding-bottom ", 128, 30);
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom ", 128, 40);
   &::before {
     @extend %cuf;
     content: "G";
-    font-size: rem(650);
     font-weight: 700;
     color: #272727;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); // as
+    @include adaptiveValue("font-size", 650, 500); // av
   }
   &__container {
     position: relative;
@@ -303,6 +305,9 @@
       text-align: center;
       justify-items: center;
       align-items: center;
+      &:not(:last-child) {
+        margin-bottom: rem(30);
+      }
       .about-section__title {
         justify-items: center;
       }

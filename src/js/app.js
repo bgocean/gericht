@@ -153,7 +153,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 
 // Плавная навигация по странице
 // (i) Для подключения в шаблон раскомментировать
-// flsScroll.pageNavigation();
+flsScroll.pageNavigation();
 
 // Функционал добавления классов к хедеру при прокрутке 
 flsScroll.headerScroll();
