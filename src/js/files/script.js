@@ -3,5 +3,10 @@
 
 // click
 window.addEventListener("load", function (e) {
-    document.body.insertAdjacentHTML('beforeend', `<div class="main-bg"></div>`)
+  const bg = document.querySelectorAll("[data-bg]");
+  if (bg.length) {
+    bg.forEach((bgItem) => {
+      bgItem.insertAdjacentHTML("beforeend", `<div class="bg-item"></div>`);
+    });
+  }
 });

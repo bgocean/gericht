@@ -1,6 +1,18 @@
 //====================================================================================================
 .mainpage {
-  background: url("@img/wave-element.svg") top right no-repeat;
+  &__body {
+    position: relative;
+    &::before {
+      content: "";
+      top: 0;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 3132px;
+      transform: translate(10%, 0px); // at
+      background: url("@img/wave-element.svg") 0 0 / 100% no-repeat;
+    }
+  }
 
   &__slider {
   }
@@ -13,7 +25,6 @@
 }
 
 .main-slider {
-  background-color: #0c0b08;
   display: flex;
   @include adaptiveValue("padding-top", 185, 80);
   @include adaptiveValue("padding-bottom ", 70, 30);
@@ -261,7 +272,7 @@
   position: relative;
   @include adaptiveValue("padding-top", 128, 40);
   @include adaptiveValue("padding-bottom ", 128, 40);
-  &::before {
+  &::after {
     @extend %cuf;
     content: "G";
     font-weight: 700;
@@ -313,8 +324,6 @@
       }
     }
   }
-  &__header {
-  }
   &__text {
     @media (min-width: $mobile) {
       display: -webkit-box;
@@ -349,5 +358,5 @@
       font-size: em(9, 64);
     }
     @include adaptiveValue("font-size", 64, 30, 1330, 768, 1); // av
-  }
+  }  
 }

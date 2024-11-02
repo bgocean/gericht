@@ -94,6 +94,8 @@ body {
 @if ($responsiveType==1) {
   // Отзывчивая
   [class*="__container"] {
+	position: relative;
+	z-index: 2;
     @if ($maxWidthContainer>0) {
       max-width: rem($maxWidthContainer);
       box-sizing: content-box;

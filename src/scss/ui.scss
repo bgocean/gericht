@@ -1,6 +1,12 @@
 // глобальный фон
-.main-bg {
-  position: fixed;
+[data-bg] {
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-item {
+  content: "";
+  position: absolute;
   top: -10%;
   left: 0%;
   width: 100%;
