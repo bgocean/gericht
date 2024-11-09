@@ -158,6 +158,8 @@ flsScroll.pageNavigation();
 // Функционал добавления классов к хедеру при прокрутке 
 flsScroll.headerScroll();
 
+flsScroll.bgParallax();
+
 // Функционал липкого блока
 // flsScroll.stickyBlock();
 

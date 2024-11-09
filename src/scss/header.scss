@@ -10,7 +10,7 @@
   &._header-scroll {
     position: fixed;
     top: -200%;
-    // transform: translate(0, -100%);
+    // transform: translate(0, -100%);      // Из-за этого ломался бургер
     background-color: rgba(0, 0, 0, 0.8);
   }
   &._header-show {
