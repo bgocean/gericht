@@ -200,8 +200,18 @@ export function bgParallax() {
   if (bgItems.length) {
     document.addEventListener("windowScroll", function (e) {
       bgItems.forEach((bgItem) => {
-		console.log(bgItem.getBoundingClientRect.top);
-	  });
+        let bgItemPosition = bgItem.getBoundingClientRect().top + scrollY;
+        let bgItemHeight = bgItem.offsetHeight;
+        let bgItemBg = bgItem.querySelector(".bg-item");
+        if (
+          scrollY > bgItemPosition - window.innerHeight &&
+          scrollY < bgItemPosition + bgItemHeight
+        ) {
+          console.log(scrollY);
+          // let prc =scrollY- bgItemHeight / window.innerHeight * 100;
+          // console.log(prc)
+        }
+      });
     });
   }
 }
