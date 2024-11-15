@@ -358,5 +358,31 @@
       font-size: em(9, 64);
     }
     @include adaptiveValue("font-size", 64, 30, 1330, 768, 1); // av
-  }  
+  }
+}
+//======================================================================================================
+.book {
+  &__container {
+  }
+
+  &__body {
+    @media (min-width: em(1390)) {
+      margin: 0px rem(-32);
+    }
+  }
+
+  &__header {
+  }
+
+  &__form {
+  }
+
+  &__button {
+  }
+}
+.form-book {
+  &__lines {
+  }
+  &__line {
+  }
 }
