@@ -131,7 +131,7 @@ export class SelectConstructor {
 		// Помещаем оригинальный селект в оболочку
 		selectItem.appendChild(originalSelect);
 		// Скрываем оригинальный селект
-		//originalSelect.hidden = true;
+		originalSelect.hidden = true;
 		// Присваиваем уникальный ID
 		index ? originalSelect.dataset.id = index : null;
 
