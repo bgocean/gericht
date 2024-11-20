@@ -37,6 +37,7 @@
 		"gulp-webp-html-nosvg": "latest",
 		"gulp-webpcss": "latest",
 		"imagemin-webp": "latest",
+		"js-datepicker": "^5.18.3",
 		"lightgallery": "latest",
 		"mini-css-extract-plugin": "latest",
 		"nouislider": "latest",

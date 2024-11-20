@@ -163,12 +163,17 @@
                       </select>
                     </div>
                     <div class="form-book__line">
-                      <select name="form[]" class="form">
-                        <option value="1" selected>12/05/2024</option>
-                        <option value="2">13/05/2024</option>
-                        <option value="3">14/05/2024</option>
-                        <option value="4">15/05/2024</option>
-                      </select>
+                      <div class="form-book__input _icon-select-arrow">
+                        <input
+                          autocomplete="off"
+                          type="text"
+                          name="form[]"
+                          data-error="Ошибка"
+                          placeholder="Sat Mar 02 2024"
+                          data-calendar
+                          class="input-dark"
+                        />
+                      </div>
                     </div>
                     <div class="form-book__line">
                       <select data-scroll name="form[]" class="form">
@@ -181,7 +186,9 @@
                       </select>
                     </div>
                   </div>
-                  <button type="submit" class="book__button button">Book Now</button>
+                  <button type="submit" class="book__button button">
+                    Book Now
+                  </button>
                 </form>
               </div>
             </div>

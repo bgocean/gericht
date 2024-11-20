@@ -65,7 +65,7 @@ flsFunctions.fullVHfix();
 import * as flsForms from "./files/forms/forms.js";
 
 /* Работа с полями формы. Добавление классов, работа с placeholder */
-// flsForms.formFieldsInit();
+flsForms.formFieldsInit();
 
 /* Oтправка формы со встроенной валидацией полей. false - отключит валидацию */
 // flsForms.formSubmit(true);

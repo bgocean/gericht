@@ -8,7 +8,7 @@
       height: 14908px;
       position: absolute;
       right: 50%;
-      width: 1920px;      
+      width: 1920px;
       transform: translate(50%, 0px); // at
       background: url("@img/wave-element.svg") 0 0 / 100% no-repeat;
     }
@@ -370,7 +370,7 @@
   &__body {
     padding: 0px rem(32);
     background: #000;
-    border: 1px solid rgba(220, 202, 135, 0.2);   
+    border: 1px solid rgba(220, 202, 135, 0.2);
     box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
     @include adaptiveValue("padding-top", 48, 20);
     @include adaptiveValue("padding-bottom", 48, 20);
@@ -398,5 +398,16 @@
     @include adaptiveValue("padding-bottom", 64, 20);
   }
   &__line {
+  }
+
+  &__input {
+    position: relative;
+    &::before {
+      position: absolute;
+      right: rem(16);
+      top: 50%;
+      transform: translate(0px, -50%);
+      font-size: rem(10);     
+    }
   }
 }
