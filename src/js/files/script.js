@@ -15,9 +15,14 @@ window.addEventListener("load", function (e) {
   }
 
   const picker = datepicker("[data-calendar]", {
- formatter: (input, date, instance) => {
-    const value = date.toLocaleDateString()
-    input.value = value // => '1/1/2099'
-  }
+    formatter: (input, date, instance) => {
+      // Форматируем дату в формате "дд/мм/гггг"
+      const value = date.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+      input.value = value;
+    },
   });
 });
