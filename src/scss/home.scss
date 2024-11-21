@@ -407,7 +407,19 @@
       right: rem(16);
       top: 50%;
       transform: translate(0px, -50%);
-      font-size: rem(10);     
+      font-size: rem(10);
+      transition: all 0.3s ease 0s; // aa
+    }
+    &._form-focus {
+      &::before {
+        transform: translate(0px, -50%) rotate(-180deg); // at
+      }
+    }
+    .form__error {
+      position: absolute;
+      bottom: -25px;
+      color: red;
+      font-size: rem(15);
     }
   }
 }
