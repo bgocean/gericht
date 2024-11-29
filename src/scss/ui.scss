@@ -43,7 +43,7 @@
     line-height: 130%;
     letter-spacing: 0.04em;
     color: $mainYellow;
-    @include adaptiveValue("font-size", 64, 64);
+    @include adaptiveValue("font-size", 64, 35);
   }
 
   &_big {
