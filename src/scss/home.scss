@@ -362,9 +362,21 @@
 }
 //======================================================================================================
 .book {
+  position: relative;
   @include adaptiveValue("padding-top", 150, 40);
   @include adaptiveValue("padding-bottom", 150, 40);
+
   &__container {
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        right: rem(-150);
+        top: rem(-150);
+        @media (max-width: $pc) {
+          display: none;
+        }
+      }
+    }
   }
 
   &__body {
@@ -376,6 +388,11 @@
     @include adaptiveValue("padding-bottom", 48, 20);
     @media (min-width: em(1390)) {
       margin: 0px rem(-32);
+    }
+    @media (min-width: $tablet) {
+      border-right: none;
+      border-left: none;
+      margin: 0px rem(-15);
     }
   }
 
@@ -408,21 +425,41 @@
     &::before {
       position: absolute;
       right: rem(16);
-      top: 50%;
-      transform: translate(0px, -50%);
+      top: rem(25);
       font-size: rem(10);
       transition: all 0.3s ease 0s; // aa
     }
     &._form-focus {
       &::before {
-        transform: translate(0px, -50%) rotate(-180deg); // at
+        transform: rotate(-180deg); // at
       }
     }
     .form__error {
-      position: absolute;
-      bottom: -25px;
       color: red;
       font-size: rem(15);
+      margin: 10px 0px 0px 0px;
+      @media (min-width: $tablet) {
+        position: absolute;
+        bottom: -25px;
+      }
     }
+  }
+}
+//======================================================================================================
+.menu-block {
+  .bg-item {
+    background: url("@img/mainpage/menu/bg.jpg") 0 0 / cover no-repeat;
+  }
+  &__container {
+    &_wide {
+    }
+  }
+  &__menu {
+  }
+  &__list {
+  }
+  &__item {
+  }
+  &__link {
   }
 }

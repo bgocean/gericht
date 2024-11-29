@@ -146,13 +146,18 @@
             </div>
           </section>
           <section class="book">
-            <div class="book__container">
+            <div data-decor class="book__container">
               <div class="book__body">
                 <div class="book__header block-header">
                   <div class="block-header__subtitle">Reservations</div>
                   <h2 class="block-header__title">Book A Table</h2>
                 </div>
-                <form data-dev data-popup-massage="#formMessage" action="#" class="book__form form-book">
+                <form
+                  data-dev
+                  data-popup-massage="#formMessage"
+                  action="#"
+                  class="book__form form-book"
+                >
                   <div class="form-book__lines">
                     <div class="form-book__line">
                       <select name="form[]" class="form">
@@ -194,11 +199,30 @@
               </div>
             </div>
           </section>
+          <section data-bg class="menu-block">
+            <div
+              data-decor
+              class="menu-block__container menu-block__container_wide"
+            >
+              <nav class="menu-block__menu">
+                <ul class="menu-block__list">
+                  <li class="menu-block__item">
+                    <a href="" class="menu-block__link">Bar Menu</a>
+                  </li>
+                  <li class="menu-block__item">
+                    <a href="" class="menu-block__link">Food Menu</a>
+                  </li>
+                  <li class="menu-block__item">
+                    <a href="" class="menu-block__link">Desserts Menu</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </section>
         </div>
       </main>
       @@include('html/_footer.htm',{})
     </div>
-    @@include('html/_popup.htm',{})
-    @@include('html/_js.htm',{})
+    @@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
   </body>
 </html>

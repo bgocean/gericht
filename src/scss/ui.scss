@@ -4,6 +4,24 @@
   position: relative;
 }
 
+[data-decor] {
+  &::before {
+    content: "";
+    background: url("@img/main-decor.svg") 0 0 / 100% no-repeat; // bg+
+    width: rem(145);
+    height: rem(145);
+    animation: rotate 30s infinite linear;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
 .bg-item {
   content: "";
   position: absolute;
