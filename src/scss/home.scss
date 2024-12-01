@@ -384,8 +384,8 @@
     background: #000;
     border: 1px solid rgba(220, 202, 135, 0.2);
     box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
-    @include adaptiveValue("padding-top", 48, 20);
-    @include adaptiveValue("padding-bottom", 48, 20);
+    @include adaptiveValue("padding-top", 48, 40);
+    @include adaptiveValue("padding-bottom", 48, 40);
     @media (min-width: em(1390)) {
       margin: 0px rem(-32);
     }
@@ -447,19 +447,51 @@
 }
 //======================================================================================================
 .menu-block {
-  .bg-item {
-    background: url("@img/mainpage/menu/bg.jpg") 0 0 / cover no-repeat;
+  overflow: hidden;
+  position: relative;
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex; // fbc
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $tablet) {
+      img {
+        opacity: 0.5;
+      }
+    }
   }
   &__container {
     &_wide {
     }
   }
   &__menu {
+    @include adaptiveValue("padding-top", 260, 40);
+    @include adaptiveValue("padding-bottom", 260, 40);
   }
   &__list {
+    display: grid;
+    gap: 65px;
+    @include adaptiveValue("gap", 64, 30);
   }
   &__item {
   }
   &__link {
+    @extend %cuf;
+    font-weight: 600;
+    font-size: rem(64);
+    line-height: 130%;
+    letter-spacing: 0.03em;
+    text-decoration: underline;
+    color: $mainWhite;
+    @include adaptiveValue("font-size", 64, 30);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
