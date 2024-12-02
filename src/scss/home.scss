@@ -363,8 +363,8 @@
 //======================================================================================================
 .book {
   position: relative;
-  @include adaptiveValue("padding-top", 150, 40);
-  @include adaptiveValue("padding-bottom", 150, 40);
+  @include adaptiveValue("padding-top", 150, 0);
+  @include adaptiveValue("padding-bottom", 150, 0);
 
   &__container {
     &[data-decor] {
@@ -466,6 +466,15 @@
   }
   &__container {
     &_wide {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @media (max-width: em(1024)) {
+          display: none;
+        }
+      }
     }
   }
   &__menu {
@@ -476,6 +485,10 @@
     display: grid;
     gap: 65px;
     @include adaptiveValue("gap", 64, 30);
+    @media (max-width: $tablet) {
+      justify-content: center;
+      text-align: center;
+    }
   }
   &__item {
   }
@@ -485,13 +498,57 @@
     font-size: rem(64);
     line-height: 130%;
     letter-spacing: 0.03em;
-    text-decoration: underline;
+    border-bottom: 1px solid;
     color: $mainWhite;
     @include adaptiveValue("font-size", 64, 30);
     @media (any-hover: hover) {
       &:hover {
-        text-decoration: none;
+        border-bottom: 1px solid transparent;
       }
     }
+  }
+}
+//======================================================================================================
+.special {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+  &__container {
+  }
+  &__header {
+    @include adaptiveValue("margin-bottom", 65, 30);
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  &__table {
+  }
+  &__image {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.block-header {
+  &__subtitle {
+  }
+  &__title {
+  }
+}
+.table-special {
+  &__title {
+  }
+  &__body {
+  }
+  &__item {
+  }
+  &__header {
+  }
+  &__value {
+  }
+  &__price {
+  }
+  &__info {
   }
 }
