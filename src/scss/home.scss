@@ -549,6 +549,8 @@
     } // mble
   }
   &__body {
+    display: grid;
+    gap: 40px;
   }
   &__item {
     display: grid;
