@@ -519,14 +519,22 @@
   }
   &__body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: $tablet) and (min-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr); // md2
+    }
   }
   &__table {
   }
   &__image {
     img {
       max-width: 100%;
+    }
+    @media (max-width: $tablet) {
+      display: none; // md2
     }
   }
 }
@@ -593,5 +601,6 @@
     background-color: $mainDark;
   }
   &__info {
+    line-height: 170%;
   }
 }
