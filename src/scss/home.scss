@@ -513,11 +513,10 @@
   @include adaptiveValue("padding-top", 150, 40);
   @include adaptiveValue("padding-bottom", 150, 40);
   &__container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    @include adaptiveValue("gap", 64, 30);
   }
   &__header {
-    @include adaptiveValue("margin-bottom", 65, 30);
   }
   &__body {
     display: grid;
@@ -531,7 +530,7 @@
     }
   }
   &__button {
-    align-self: center;
+    justify-self: center;
   }
   &__table {
   }
